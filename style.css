@@ -1,0 +1,302 @@
+* {
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+}
+body {
+	background-color: #222;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 125px;
+}
+.wrapper {
+	width: 400px;
+	height: 400px;
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+}
+
+.loader-1 {
+	margin: 15% 0 0 35%;
+	width: 40px;
+	background: radial-gradient(circle closest-side, #ff8c00 90%, #222) 0 /
+		calc(100% / 3) 100% space;
+	clip-path: inset(0 100% 0 0);
+	animation: load-1 1.5s steps(4) infinite alternate;
+}
+@keyframes load-1 {
+	to {
+		clip-path: inset(0 -34% 0 0);
+	}
+}
+
+.loader-2 {
+	margin: 40% 0 0 40%;
+	width: 40px;
+	aspect-ratio: 1.154;
+	--_g: no-repeat radial-gradient(farthest-side, #ff8c00 90%, #222);
+	background: var(--_g) 50% 0, var(--_g) 0 100%, var(--_g) 100% 100%;
+	background-size: 35% calc(35% * 1.154);
+	animation: load-2 1s infinite;
+}
+@keyframes load-2 {
+	50%,
+	100% {
+		background-position: 100% 100%, 50% 0, 0 100%;
+	}
+}
+
+.loader-3 {
+	margin: 40% 0 0 40%;
+	width: 35px;
+	aspect-ratio: 1;
+	--_g: no-repeat radial-gradient(farthest-side, #ff8c00 90%, #222);
+	background: var(--_g), var(--_g), var(--_g), var(--_g);
+	background-size: 40% 40%;
+	animation: load-3 1s infinite;
+}
+@keyframes load-3 {
+	0% {
+		background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+	}
+	40%,
+	50% {
+		background-position: 100% 100%, 100% 0, 0 0, 0 100%;
+	}
+	90%,
+	100% {
+		background-position: 100% 100%, 0 100%, 0 0, 100% 0;
+	}
+}
+
+.loader-4 {
+	margin: 35%;
+	width: 40px;
+	aspect-ratio: 1;
+	--c: linear-gradient(#ff8c00 0 0);
+	--m: radial-gradient(farthest-side, #ff8c00 50%, #ff8c00);
+	background: var(--m) center / 10px 10px,
+		var(--c) left 50% top -20px/8px 16px,
+		var(--c) left 50% bottom -20px/8px 16px,
+		var(--c) top 50% left -20px/16px 8px,
+		var(--c) top 50% right -20px/16px 8px;
+	background-repeat: no-repeat;
+	animation: load-4a 1.5s infinite, load-4b 1.5s infinite;
+}
+@keyframes load-4a {
+	30%,
+	70% {
+		background-position: center, left 50% top calc(50% - 8px),
+			left 50% bottom calc(50% - 8px), top 50% left calc(50% - 8px),
+			top 50% right calc(50% - 8px);
+	}
+}
+@keyframes load-4b {
+	0%,
+	40% {
+		transform: rotate(0);
+	}
+	60%,
+	100% {
+		transform: rotate(90deg);
+	}
+}
+
+.loader-5 {
+	margin: 30% 0 0 30%;
+	width: 50px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 8px solid #ff8c00;
+	animation: load-5a 0.8s infinite linear alternate,
+		load-5b 1.6s infinite linear;
+}
+@keyframes load-5a {
+	0% {
+		clip-path: polygon(
+			50% 50%,
+			0 0,
+			50% 0%,
+			50% 0%,
+			50% 0%,
+			50% 0%,
+			50% 0%
+		);
+	}
+	12.5% {
+		clip-path: polygon(
+			50% 50%,
+			0 0,
+			50% 0%,
+			100% 0%,
+			100% 0%,
+			100% 0%,
+			100% 0%
+		);
+	}
+	25% {
+		clip-path: polygon(
+			50% 50%,
+			0 0,
+			50% 0%,
+			100% 0%,
+			100% 100%,
+			100% 100%,
+			100% 100%
+		);
+	}
+	50% {
+		clip-path: polygon(
+			50% 50%,
+			0 0,
+			50% 0%,
+			100% 0%,
+			100% 100%,
+			50% 100%,
+			0% 100%
+		);
+	}
+	62.5% {
+		clip-path: polygon(
+			50% 50%,
+			100% 0,
+			100% 0%,
+			100% 0%,
+			100% 100%,
+			50% 100%,
+			0% 100%
+		);
+	}
+	75% {
+		clip-path: polygon(
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			100% 100%,
+			100% 100%,
+			50% 100%,
+			0% 100%
+		);
+	}
+	100% {
+		clip-path: polygon(
+			50% 50%,
+			50% 100%,
+			50% 100%,
+			50% 100%,
+			50% 100%,
+			50% 100%,
+			0% 100%
+		);
+	}
+}
+@keyframes load-5b {
+	0% {
+		transform: scaleY(1) rotate(0deg);
+	}
+	49.99% {
+		transform: scaleY(1) rotate(135deg);
+	}
+	50% {
+		transform: scaleY(-1) rotate(0deg);
+	}
+	100% {
+		transform: scaleY(-1) rotate(-135deg);
+	}
+}
+
+.loader-6 {
+	margin: 42% 0 0 42%;
+	--d: 22px;
+	width: 4px;
+	height: 4px;
+	border-radius: 50%;
+	color: #ff8c00;
+	box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0,
+		calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 1px,
+		calc(0 * var(--d)) calc(1 * var(--d)) 0 2px,
+		calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 3px,
+		calc(-1 * var(--d)) calc(0 * var(--d)) 0 4px,
+		calc(-0.707 * var(--d)) calc(-0.707 * var(--d)) 0 5px,
+		calc(0 * var(--d)) calc(-1 * var(--d)) 0 6px;
+	animation: load-6 2s infinite ease-in-out;
+}
+@keyframes load-6 {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+.loader-7 {
+	margin: 30% 0 0 70%;
+	width: 12px;
+	aspect-ratio: 1;
+	background: #ff8c00;
+	box-shadow: 0 0 60px 15px #a15900;
+	transform: translate(-80px);
+	clip-path: inset(0);
+	animation: load-7a 0.5s ease-in-out infinite alternate,
+		load-7b 1s ease-in-out infinite;
+}
+@keyframes load-7a {
+	100% {
+		transform: translateX(10px);
+	}
+}
+@keyframes load-7b {
+	33% {
+		clip-path: inset(0 0 0 -80px);
+	}
+	50% {
+		clip-path: inset(0 0 0 0);
+	}
+	83% {
+		clip-path: inset(0 -80px 0 0);
+	}
+}
+
+.loader-8 {
+	margin: 28% 0 0 15%;
+	width: calc(80px / cos(45deg));
+	height: 14px;
+	background: repeating-linear-gradient(-45deg, #ff8c00 0 15px, #222 0 20px)
+		left/200% 100%;
+	animation: load-8 2s infinite linear;
+}
+@keyframes load-8 {
+	100% {
+		background-position: right;
+	}
+}
+
+.loader-9 {
+	margin: 21% 0 0 35%;
+	width: 35px;
+	aspect-ratio: 1;
+	animation: load-9a 2s infinite linear, load-9b 3s infinite steps(1) -0.5s;
+}
+@keyframes load-9a {
+	0% {
+		transform: perspective(150px) rotateX(0deg) rotateY(0deg);
+	}
+	50% {
+		transform: perspective(150px) rotateX(180deg) rotateY(0deg);
+	}
+	100% {
+		transform: perspective(150px) rotateX(180deg) rotateY(180deg);
+	}
+}
+@keyframes load-9b {
+	0% {
+		background: #ff8c00;
+	}
+	33% {
+		background: #ff8c00;
+	}
+	66% {
+		background: #ff8c00;
+	}
+}
